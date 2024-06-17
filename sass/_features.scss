@@ -3,7 +3,30 @@
 
   margin: 15rem 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   // grid-template-rows: auto auto; automatically generated
   gap: 6rem;
+  align-items: start;
+}
+
+.feature {
+  // ! We have an implicit grid here because we didn't  define the rows
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  row-gap: 1.5rem;
+  column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    grid-row: 1 / span 2; // ! We could have used the -1 but it only works in explicit grid
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
